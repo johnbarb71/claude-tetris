@@ -234,3 +234,107 @@ kbd {
 #restart-btn:hover {
   background: #9bbdff;
 }
+
+/* ---- Records ---- */
+.value.small {
+  font-size: 16px;
+}
+
+.records-list {
+  list-style: decimal inside;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text);
+  max-width: 100%;
+}
+
+.records-list li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.records-list li.records-empty {
+  color: var(--controls-text);
+  list-style: none;
+}
+
+.records-list li.records-highlight {
+  color: #7aa2f7;
+  font-weight: 700;
+}
+
+.records-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reset-records-btn {
+  background: transparent;
+  color: var(--controls-text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.reset-records-btn:hover {
+  border-color: #e57373;
+  color: #e57373;
+}
+
+/* ---- New record form (game-over overlay) ---- */
+.new-record-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.new-record-form.hidden {
+  display: none;
+}
+
+.new-record-label {
+  font-size: 12px;
+  color: #7aa2f7;
+}
+
+.new-record-form input {
+  background: var(--kbd-bg);
+  border: 1px solid var(--kbd-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: center;
+  width: 160px;
+}
+
+.new-record-form button {
+  background: #81c784;
+  color: #0f0f17;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s;
+}
+
+.new-record-form button:hover {
+  background: #9edda1;
+}
+
+#overlay-records-list {
+  max-width: 220px;
+}
