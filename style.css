@@ -38,6 +38,24 @@ body.light-mode {
   --toggle-text: #3a3a6a;
 }
 
+/* ---- Skins (visual themes, independent of light/dark mode) ----
+   Declared after .light-mode so the canvas look is consistent
+   regardless of the light/dark toggle state. */
+body[data-skin="neon"] {
+  --canvas-bg: #000000;
+  --grid-line: #001414;
+}
+
+body[data-skin="pastel"] {
+  --canvas-bg: #fbf3ec;
+  --grid-line: #ecdfd4;
+}
+
+body[data-skin="pixel"] {
+  --canvas-bg: #14141c;
+  --grid-line: #26263a;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -141,6 +159,29 @@ body {
   font-weight: 700;
   color: #7aa2f7;
   letter-spacing: 1px;
+}
+
+.skin-select {
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--toggle-text);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.skin-select:hover {
+  border-color: #7aa2f7;
+  color: #7aa2f7;
+}
+
+.skin-select:focus {
+  outline: none;
+  border-color: #7aa2f7;
 }
 
 #next-canvas {
