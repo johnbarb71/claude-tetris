@@ -247,7 +247,12 @@ function getHighScores() {
 }
 
 function saveHighScores(list) {
-  localStorage.setItem(HIGH_SCORES_KEY, JSON.stringify(list));
+  try {
+    localStorage.setItem(HIGH_SCORES_KEY, JSON.stringify(list));
+  } catch (e) {
+    // Storage unavailable (quota exceeded, private browsing, disabled) —
+    // degrade gracefully; callers still update in-memory UI state.
+  }
 }
 
 function qualifiesForHighScore(s) {
@@ -314,6 +319,7 @@ function endGame() {
   cancelAnimationFrame(animId);
   overlayTitle.textContent = 'GAME OVER';
   overlayScore.textContent = `Puntuación: ${score.toLocaleString()}`;
+  overlayRecordsListEl.classList.remove('hidden');
   linesThisGame = lines;
   pendingEntry = null;
   if (qualifiesForHighScore(score)) {
@@ -340,6 +346,8 @@ function togglePause() {
     cancelAnimationFrame(animId);
     overlayTitle.textContent = 'PAUSA';
     overlayScore.textContent = '';
+    overlayRecordsListEl.classList.add('hidden');
+    newRecordForm.classList.add('hidden');
     overlay.classList.remove('hidden');
   }
 }
